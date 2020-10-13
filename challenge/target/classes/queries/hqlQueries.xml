@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queries>
+	<query name="pdoCte.getAllActivesByCteId">
+		<![CDATA[
+				select
+					cli.NombreCliente, cli.IdCliente, cat.active, cat.IdProducto,prod.NombreProducto
+				from
+					prod_cus cat, clientes cli, productos prod
+				where
+					cat.IdCliente = cli.IdCliente
+					cat.IdProducto = prod.IdProducto
+					and cat.IdCliente = ?
+					and cat.active = ?
+				order by
+					catP.ctgProductoNombre asc
+		]]>
+	</query>
+</queries>
